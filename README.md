@@ -68,7 +68,9 @@ End-to-end testing is not conducted on these modules, as they are individual com
 
 | Name | Description |
 |------|-------------|
-| <a name="output_subscription"></a> [subscription](#output\_subscription) | subscription(s) details |
+| <a name="output_management_group"></a> [management\_group](#output\_management\_group) | management group details |
+| <a name="output_management_group_subscription_associations"></a> [management\_group\_subscription\_associations](#output\_management\_group\_subscription\_associations) | management group subscription associations |
+| <a name="output_subscriptions"></a> [subscriptions](#output\_subscriptions) | subscription(s) details |
 <!-- END_TF_DOCS -->
 
 ## Testing
