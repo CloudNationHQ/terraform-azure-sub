@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v1.1.0...v1.2.0) (2025-03-18)
+
+
+### Features
+
+* **deps:** bump github.com/gruntwork-io/terratest in /tests ([#4](https://github.com/CloudNationHQ/terraform-azure-sub/issues/4)) ([5ee2c2f](https://github.com/CloudNationHQ/terraform-azure-sub/commit/5ee2c2f6402347ac64108c2a5c506d8d5f227875))
+* update documentation ([#8](https://github.com/CloudNationHQ/terraform-azure-sub/issues/8)) ([8b8947e](https://github.com/CloudNationHQ/terraform-azure-sub/commit/8b8947e97c82ddf5695396d01eca6539ea8dcc7a))
+
 ## [1.1.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v1.0.0...v1.1.0) (2025-03-18)
 
 
