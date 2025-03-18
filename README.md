@@ -158,6 +158,10 @@ Description: management group subscription associations
 Description: subscription(s) details
 <!-- END_TF_DOCS -->
 
+## Goals
+
+For more information, please see our [goals and non-goals](./GOALS.md).
+
 ## Testing
 
 For more information, please see our testing [guidelines](./TESTING.md)
