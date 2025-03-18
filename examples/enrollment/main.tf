@@ -4,8 +4,7 @@ module "sub" {
 
   subscriptions = {
     demo = {
-      name             = "TF-demo-subscription"
-      billing_scope_id = "westeurope"
+      name = "TF-demo-subscription"
     }
   }
   billing_enrollment_account = {
