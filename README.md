@@ -31,46 +31,131 @@ End-to-end testing is not conducted on these modules, as they are individual com
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
+The following requirements are needed by this module:
+
+- <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
+
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+The following providers are used by this module:
+
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azurerm_management_group_subscription_association.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) | resource |
-| [azurerm_management_lock.lock](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_lock) | resource |
-| [azurerm_subscription.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) | resource |
-| [azurerm_billing_enrollment_account_scope.enrollment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_enrollment_account_scope) | data source |
-| [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) | data source |
-| [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) | data source |
-| [azurerm_management_group.group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) | data source |
+The following resources are used by this module:
 
-## Inputs
+- [azurerm_management_group_subscription_association.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) (resource)
+- [azurerm_management_lock.lock](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_lock) (resource)
+- [azurerm_subscription.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) (resource)
+- [azurerm_billing_enrollment_account_scope.enrollment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_enrollment_account_scope) (data source)
+- [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) (data source)
+- [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) (data source)
+- [azurerm_management_group.group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) (data source)
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_billing_enrollment_account"></a> [billing\_enrollment\_account](#input\_billing\_enrollment\_account) | billing enrollment account details | <pre>object({<br/>    billing_account_name    = string<br/>    enrollment_account_name = string<br/>  })</pre> | `null` | no |
-| <a name="input_billing_mca_account"></a> [billing\_mca\_account](#input\_billing\_mca\_account) | billing mca account details | <pre>object({<br/>    billing_account_name = string<br/>    billing_profile_name = string<br/>    invoice_section_name = string<br/>  })</pre> | `null` | no |
-| <a name="input_billing_mpa_account"></a> [billing\_mpa\_account](#input\_billing\_mpa\_account) | billing mpa account details | <pre>object({<br/>    billing_account_name = string<br/>    customer_name        = string<br/>  })</pre> | `null` | no |
-| <a name="input_subscriptions"></a> [subscriptions](#input\_subscriptions) | subscription details | <pre>map(object({<br/>    name                          = optional(string)<br/>    alias                         = optional(string)<br/>    billing_scope_id              = optional(string)<br/>    subscription_id               = optional(string)<br/>    workload                      = optional(string)<br/>    tags                          = optional(map(string))<br/>    management_group_name         = optional(string)<br/>    management_group_display_name = optional(string)<br/>    management_lock = optional(object({<br/>      name  = optional(string)<br/>      level = optional(string)<br/>      notes = optional(string)<br/>    }))<br/>  }))</pre> | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | tags to be added to the subscription(s) | `map(string)` | `{}` | no |
+## Required Inputs
+
+The following input variables are required:
+
+### <a name="input_subscriptions"></a> [subscriptions](#input\_subscriptions)
+
+Description: subscription details
+
+Type:
+
+```hcl
+map(object({
+    name                          = optional(string)
+    alias                         = optional(string)
+    billing_scope_id              = optional(string)
+    subscription_id               = optional(string)
+    workload                      = optional(string)
+    tags                          = optional(map(string))
+    management_group_name         = optional(string)
+    management_group_display_name = optional(string)
+    management_lock = optional(object({
+      name  = optional(string)
+      level = optional(string)
+      notes = optional(string)
+    }))
+  }))
+```
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_billing_enrollment_account"></a> [billing\_enrollment\_account](#input\_billing\_enrollment\_account)
+
+Description: billing enrollment account details
+
+Type:
+
+```hcl
+object({
+    billing_account_name    = string
+    enrollment_account_name = string
+  })
+```
+
+Default: `null`
+
+### <a name="input_billing_mca_account"></a> [billing\_mca\_account](#input\_billing\_mca\_account)
+
+Description: billing mca account details
+
+Type:
+
+```hcl
+object({
+    billing_account_name = string
+    billing_profile_name = string
+    invoice_section_name = string
+  })
+```
+
+Default: `null`
+
+### <a name="input_billing_mpa_account"></a> [billing\_mpa\_account](#input\_billing\_mpa\_account)
+
+Description: billing mpa account details
+
+Type:
+
+```hcl
+object({
+    billing_account_name = string
+    customer_name        = string
+  })
+```
+
+Default: `null`
+
+### <a name="input_tags"></a> [tags](#input\_tags)
+
+Description: tags to be added to the subscription(s)
+
+Type: `map(string)`
+
+Default: `{}`
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_management_group"></a> [management\_group](#output\_management\_group) | management group details |
-| <a name="output_management_group_subscription_associations"></a> [management\_group\_subscription\_associations](#output\_management\_group\_subscription\_associations) | management group subscription associations |
-| <a name="output_subscriptions"></a> [subscriptions](#output\_subscriptions) | subscription(s) details |
+The following outputs are exported:
+
+### <a name="output_management_group"></a> [management\_group](#output\_management\_group)
+
+Description: management group details
+
+### <a name="output_management_group_subscription_associations"></a> [management\_group\_subscription\_associations](#output\_management\_group\_subscription\_associations)
+
+Description: management group subscription associations
+
+### <a name="output_subscriptions"></a> [subscriptions](#output\_subscriptions)
+
+Description: subscription(s) details
 <!-- END_TF_DOCS -->
 
 ## Testing
