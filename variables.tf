@@ -1,6 +1,6 @@
-variable "subscriptions" {
+variable "subscription" {
   description = "subscription details"
-  type = map(object({
+  type = object({
     name                          = optional(string)
     alias                         = optional(string)
     billing_scope_id              = optional(string)
@@ -14,7 +14,7 @@ variable "subscriptions" {
       level = optional(string)
       notes = optional(string)
     }))
-  }))
+  })
 }
 
 variable "billing_mca_account" {

@@ -29,9 +29,9 @@ The following providers are used by this module:
 
 The following resources are used by this module:
 
-- [azurerm_management_group_subscription_association.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) (resource)
+- [azurerm_management_group_subscription_association.sub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) (resource)
 - [azurerm_management_lock.lock](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_lock) (resource)
-- [azurerm_subscription.subs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) (resource)
+- [azurerm_subscription.sub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) (resource)
 - [azurerm_billing_enrollment_account_scope.enrollment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_enrollment_account_scope) (data source)
 - [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) (data source)
 - [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) (data source)
@@ -41,14 +41,14 @@ The following resources are used by this module:
 
 The following input variables are required:
 
-### <a name="input_subscriptions"></a> [subscriptions](#input\_subscriptions)
+### <a name="input_subscription"></a> [subscription](#input\_subscription)
 
 Description: subscription details
 
 Type:
 
 ```hcl
-map(object({
+object({
     name                          = optional(string)
     alias                         = optional(string)
     billing_scope_id              = optional(string)
@@ -62,7 +62,7 @@ map(object({
       level = optional(string)
       notes = optional(string)
     }))
-  }))
+  })
 ```
 
 ## Optional Inputs
