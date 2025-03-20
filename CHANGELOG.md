@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v1.2.0...v2.0.0) (2025-03-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* refactor to single resource without a for_each ([#10](https://github.com/CloudNationHQ/terraform-azure-sub/issues/10))
+
+### Features
+
+* refactor to single resource without a for_each ([#10](https://github.com/CloudNationHQ/terraform-azure-sub/issues/10)) ([319e496](https://github.com/CloudNationHQ/terraform-azure-sub/commit/319e496c9bb5c6ef7e87229798e1136483fd392c))
+
 ## [1.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v1.1.0...v1.2.0) (2025-03-18)
 
 
