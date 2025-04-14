@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.0.0...v2.0.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* fix submodule generation from makefile ([#12](https://github.com/CloudNationHQ/terraform-azure-sub/issues/12)) ([ffeb78d](https://github.com/CloudNationHQ/terraform-azure-sub/commit/ffeb78d0914d3d62d87b40022e95262d9094d001))
+
 ## [2.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v1.2.0...v2.0.0) (2025-03-20)
 
 
