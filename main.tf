@@ -39,7 +39,10 @@ resource "azurerm_subscription" "sub" {
   alias             = try(var.subscription.alias, null)
   subscription_id   = try(var.subscription.subscription_id, null)
   workload          = try(var.subscription.workload, "Production")
-  tags              = coalesce(try(var.subscription.tags, {}), var.tags)
+
+  tags = coalesce(
+    var.subscription.tags, var.tags
+  )
 
   billing_scope_id = try(var.subscription.billing_scope_id, null) != null ? var.subscription.billing_scope_id : try(
     var.billing_mca_account, null) != null ? data.azurerm_billing_mca_account_scope.mca["default"].id : try(
@@ -52,7 +55,6 @@ resource "azurerm_management_lock" "lock" {
 
   name  = var.subscription.management_lock.name
   scope = azurerm_subscription.sub.id
-
 
   lock_level = try(var.subscription.management_lock.level, "CanNotDelete")
   notes      = try(var.subscription.management_lock.notes, null)
