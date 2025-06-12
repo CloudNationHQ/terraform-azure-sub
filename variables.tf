@@ -9,6 +9,7 @@ variable "subscription" {
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
+    use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
       level = optional(string, "CanNotDelete")
