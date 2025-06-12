@@ -57,16 +57,14 @@ resource "azurerm_subscription" "sub" {
     var.subscription.use_existing_subscription, false
   ) ? {} : { "subscription" = var.subscription }
 
-  subscription_name = var.subscription.name
-  alias             = var.subscription.alias
-  subscription_id   = var.subscription.subscription_id
-  workload          = var.subscription.workload
-
+  subscription_name = each.value.name
+  alias             = each.value.alias
+  subscription_id   = each.value.subscription_id
+  workload          = each.value.workload
   tags = coalesce(
-    var.subscription.tags, var.tags
+    each.value.tags, var.tags
   )
-
-  billing_scope_id = try(var.subscription.billing_scope_id, null) != null ? var.subscription.billing_scope_id : try(
+  billing_scope_id = try(each.value.billing_scope_id, null) != null ? each.value.billing_scope_id : try(
     var.billing_mca_account, null) != null ? data.azurerm_billing_mca_account_scope.mca["default"].id : try(
     var.billing_enrollment_account, null) != null ? data.azurerm_billing_enrollment_account_scope.enrollment["default"].id : try(
   var.billing_mpa_account, null) != null ? data.azurerm_billing_mpa_account_scope.mpa["default"].id : null
@@ -91,9 +89,9 @@ resource "azurerm_subscription" "sub" {
 resource "azurerm_management_lock" "lock" {
   for_each = try(var.subscription.management_lock, null) != null ? { default = var.subscription } : {}
 
-  name       = var.subscription.management_lock.name
-  lock_level = var.subscription.management_lock.level
-  notes      = var.subscription.management_lock.notes
+  name       = each.value.management_lock.name
+  lock_level = each.value.management_lock.level
+  notes      = each.value.management_lock.notes
 
   scope = (var.use_existing_subscription || try(
     var.subscription.use_existing_subscription, false
