@@ -1,3 +1,12 @@
+# existing subscription
+data "azurerm_subscription" "existing" {
+  for_each = var.use_existing_subscription || try(
+    var.subscription.use_existing_subscription, false
+  ) ? { "subscription" = var.subscription } : {}
+
+  subscription_id = each.value.subscription_id
+}
+
 data "azurerm_billing_mca_account_scope" "mca" {
   for_each = try(var.billing_mca_account != null ? { default = var.billing_mca_account } : {}, {})
 
@@ -31,10 +40,23 @@ resource "azurerm_management_group_subscription_association" "sub" {
   for_each = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
 
   management_group_id = data.azurerm_management_group.group["default"].id
-  subscription_id     = "/subscriptions/${azurerm_subscription.sub.subscription_id}"
+  subscription_id = (var.use_existing_subscription || try(
+    var.subscription.use_existing_subscription, false
+  )) ? "/subscriptions/${data.azurerm_subscription.existing["subscription"].subscription_id}" : "/subscriptions/${azurerm_subscription.sub["subscription"].subscription_id}"
 }
 
+# resource "azurerm_management_group_subscription_association" "sub" {
+#   for_each = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
+#
+#   management_group_id = data.azurerm_management_group.group["default"].id
+#   subscription_id     = "/subscriptions/${azurerm_subscription.sub.subscription_id}"
+# }
+
 resource "azurerm_subscription" "sub" {
+  for_each = var.use_existing_subscription || try(
+    var.subscription.use_existing_subscription, false
+  ) ? {} : { "subscription" = var.subscription }
+
   subscription_name = var.subscription.name
   alias             = var.subscription.alias
   subscription_id   = var.subscription.subscription_id
@@ -50,12 +72,30 @@ resource "azurerm_subscription" "sub" {
   var.billing_mpa_account, null) != null ? data.azurerm_billing_mpa_account_scope.mpa["default"].id : null
 }
 
+# resource "azurerm_subscription" "sub" {
+#   subscription_name = var.subscription.name
+#   alias             = var.subscription.alias
+#   subscription_id   = var.subscription.subscription_id
+#   workload          = var.subscription.workload
+#
+#   tags = coalesce(
+#     var.subscription.tags, var.tags
+#   )
+#
+#   billing_scope_id = try(var.subscription.billing_scope_id, null) != null ? var.subscription.billing_scope_id : try(
+#     var.billing_mca_account, null) != null ? data.azurerm_billing_mca_account_scope.mca["default"].id : try(
+#     var.billing_enrollment_account, null) != null ? data.azurerm_billing_enrollment_account_scope.enrollment["default"].id : try(
+#   var.billing_mpa_account, null) != null ? data.azurerm_billing_mpa_account_scope.mpa["default"].id : null
+# }
+
 resource "azurerm_management_lock" "lock" {
   for_each = try(var.subscription.management_lock, null) != null ? { default = var.subscription } : {}
 
-  name  = var.subscription.management_lock.name
-  scope = azurerm_subscription.sub.id
-
+  name       = var.subscription.management_lock.name
   lock_level = var.subscription.management_lock.level
   notes      = var.subscription.management_lock.notes
+
+  scope = (var.use_existing_subscription || try(
+    var.subscription.use_existing_subscription, false
+  )) ? data.azurerm_subscription.existing["subscription"].id : azurerm_subscription.sub["subscription"].id
 }

@@ -1,5 +1,5 @@
 variable "subscription" {
-  description = "subscription details"
+  description = "Contains all subscription configuration"
   type = object({
     name                          = optional(string)
     alias                         = optional(string, null)
@@ -15,6 +15,12 @@ variable "subscription" {
       notes = optional(string, null)
     }))
   })
+}
+
+variable "use_existing_subscription" {
+  description = "whether to use an existing subscription instead of creating a new one"
+  type        = bool
+  default     = false
 }
 
 variable "billing_mca_account" {
