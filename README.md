@@ -10,6 +10,8 @@ Provides support for creatin gmultiple subscriptions at once.
 
 Implements optional management locks for enhanced security.
 
+Supports existing subscriptions.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -58,6 +60,7 @@ object({
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
+    use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
       level = optional(string, "CanNotDelete")
