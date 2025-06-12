@@ -1,5 +1,3 @@
-# MCA
-
 This example illustrates how to create a MCA subscription, a subscription with a Microsoft Customer Agreement.
 
 ## Notes

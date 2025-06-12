@@ -50,17 +50,17 @@ Type:
 ```hcl
 object({
     name                          = optional(string)
-    alias                         = optional(string)
+    alias                         = optional(string, null)
     billing_scope_id              = optional(string)
-    subscription_id               = optional(string)
-    workload                      = optional(string)
+    subscription_id               = optional(string, null)
+    workload                      = optional(string, "Production")
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
     management_lock = optional(object({
       name  = optional(string)
-      level = optional(string)
-      notes = optional(string)
+      level = optional(string, "CanNotDelete")
+      notes = optional(string, null)
     }))
   })
 ```
