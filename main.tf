@@ -59,3 +59,4 @@ resource "azurerm_management_lock" "lock" {
   lock_level = var.subscription.management_lock.level
   notes      = var.subscription.management_lock.notes
 }
+
