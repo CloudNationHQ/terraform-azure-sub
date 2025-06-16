@@ -4,11 +4,11 @@ This terraform module simplifies the process of creating and managing subscripti
 
 ## Features
 
-Offers support for the creation of MCA subscriptions and enrollment (EA) subscriptions.
+Offers support for the creation of MCA subscriptions and enrollment (EA) subscriptions
 
-Provides support for creatin gmultiple subscriptions at once.
+Provides support for creatin gmultiple subscriptions at once
 
-Implements optional management locks for enhanced security.
+Implements optional management locks for enhanced security
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
