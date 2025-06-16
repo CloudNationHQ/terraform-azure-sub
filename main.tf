@@ -81,3 +81,4 @@ resource "azurerm_management_lock" "lock" {
     var.subscription.use_existing_subscription, false
   )) ? data.azurerm_subscription.existing["subscription"].id : azurerm_subscription.sub["subscription"].id
 }
+
