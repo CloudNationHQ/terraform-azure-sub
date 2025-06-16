@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.2.0...v2.3.0) (2025-06-16)
+
+
+### Features
+
+* update documentation ([#22](https://github.com/CloudNationHQ/terraform-azure-sub/issues/22)) ([285b7ee](https://github.com/CloudNationHQ/terraform-azure-sub/commit/285b7ee3daa3bfc414805194c7a744ca52539777))
+
 ## [2.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.1.0...v2.2.0) (2025-06-12)
 
 
