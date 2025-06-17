@@ -4,13 +4,11 @@ This terraform module simplifies the process of creating and managing subscripti
 
 ## Features
 
-Offers support for the creation of MCA subscriptions and enrollment (EA) subscriptions
+Offers support for the creation of MCA subscriptions and enrollment (EA) subscriptions.
 
-Provides support for creatin gmultiple subscriptions at once
+Provides support for creatin gmultiple subscriptions at once.
 
-Implements optional management locks for enhanced security
-
-Supports existing subscriptions.
+Implements optional management locks for enhanced security.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -38,7 +36,6 @@ The following resources are used by this module:
 - [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) (data source)
 - [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) (data source)
 - [azurerm_management_group.group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) (data source)
-- [azurerm_subscription.existing](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) (data source)
 
 ## Required Inputs
 
@@ -46,7 +43,7 @@ The following input variables are required:
 
 ### <a name="input_subscription"></a> [subscription](#input\_subscription)
 
-Description: Contains all subscription configuration
+Description: subscription details
 
 Type:
 
@@ -60,7 +57,6 @@ object({
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
-    use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
       level = optional(string, "CanNotDelete")
@@ -126,14 +122,6 @@ Description: tags to be added to the subscription(s)
 Type: `map(string)`
 
 Default: `{}`
-
-### <a name="input_use_existing_subscription"></a> [use\_existing\_subscription](#input\_use\_existing\_subscription)
-
-Description: whether to use an existing subscription instead of creating a new one
-
-Type: `bool`
-
-Default: `false`
 
 ## Outputs
 
