@@ -1,5 +1,5 @@
 variable "subscription" {
-  description = "subscription details"
+  description = "Contains all subscription configuration"
   type = object({
     name                          = optional(string)
     alias                         = optional(string, null)
@@ -9,12 +9,19 @@ variable "subscription" {
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
+    use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
       level = optional(string, "CanNotDelete")
       notes = optional(string, null)
     }))
   })
+}
+
+variable "use_existing_subscription" {
+  description = "whether to use an existing subscription instead of creating a new one"
+  type        = bool
+  default     = false
 }
 
 variable "billing_mca_account" {
