@@ -11,6 +11,11 @@
 
 * add support for existing subscriptions ([#28](https://github.com/CloudNationHQ/terraform-azure-sub/issues/28)) ([8cd4750](https://github.com/CloudNationHQ/terraform-azure-sub/commit/8cd475044e6ae45c522b01a0e98a3af7f51f1c3f))
 
+### Upgrade from v2.3.1 to v3.0.0:
+
+- Update module reference to: `version = "~> 3.0"`
+  - The keys on some resources changed, which will cause recreates.
+
 ## [2.3.1](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.0...v2.3.1) (2025-06-17)
 
 
