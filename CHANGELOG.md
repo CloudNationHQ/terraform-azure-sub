@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.1...v3.0.0) (2025-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* The data structure changed, causing a recreate on existing resources.
+
+### Features
+
+* add support for existing subscriptions ([#28](https://github.com/CloudNationHQ/terraform-azure-sub/issues/28)) ([8cd4750](https://github.com/CloudNationHQ/terraform-azure-sub/commit/8cd475044e6ae45c522b01a0e98a3af7f51f1c3f))
+
 ## [2.3.1](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.0...v2.3.1) (2025-06-17)
 
 
