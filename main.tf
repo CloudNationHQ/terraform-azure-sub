@@ -9,7 +9,7 @@ data "azurerm_subscription" "existing" {
 
 # mca account
 data "azurerm_billing_mca_account_scope" "mca" {
-  for_each             = try(var.billing_mca_account != null ? { default = var.billing_mca_account } : {}, {})
+  for_each = try(var.billing_mca_account != null ? { default = var.billing_mca_account } : {}, {})
 
   billing_account_name = var.billing_mca_account.billing_account_name
   billing_profile_name = var.billing_mca_account.billing_profile_name
@@ -18,7 +18,7 @@ data "azurerm_billing_mca_account_scope" "mca" {
 
 # enrollment account
 data "azurerm_billing_enrollment_account_scope" "enrollment" {
-  for_each                = try(var.billing_enrollment_account != null ? { default = var.billing_enrollment_account } : {}, {})
+  for_each = try(var.billing_enrollment_account != null ? { default = var.billing_enrollment_account } : {}, {})
 
   billing_account_name    = var.billing_enrollment_account.billing_account_name
   enrollment_account_name = var.billing_enrollment_account.enrollment_account_name
@@ -26,7 +26,7 @@ data "azurerm_billing_enrollment_account_scope" "enrollment" {
 
 # mpa account
 data "azurerm_billing_mpa_account_scope" "mpa" {
-  for_each             = try(var.billing_mpa_account != null ? { default = var.billing_mpa_account } : {}, {})
+  for_each = try(var.billing_mpa_account != null ? { default = var.billing_mpa_account } : {}, {})
 
   billing_account_name = var.billing_mpa_account.billing_account_name
   customer_name        = var.billing_mpa_account.customer_name
@@ -34,7 +34,7 @@ data "azurerm_billing_mpa_account_scope" "mpa" {
 
 # management group
 data "azurerm_management_group" "group" {
-  for_each     = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
+  for_each = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
 
   name         = try(var.subscription.management_group_name, null)
   display_name = try(var.subscription.management_group_display_name, null)
@@ -42,7 +42,7 @@ data "azurerm_management_group" "group" {
 
 # association
 resource "azurerm_management_group_subscription_association" "sub" {
-  for_each            = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
+  for_each = try(var.subscription.management_group_name, null) != null || try(var.subscription.management_group_display_name, null) != null ? { default = var.subscription } : {}
 
   management_group_id = data.azurerm_management_group.group["default"].id
 
@@ -73,7 +73,7 @@ resource "azurerm_subscription" "sub" {
 
 # management lock
 resource "azurerm_management_lock" "lock" {
-  for_each   = try(var.subscription.management_lock, null) != null ? { default = var.subscription } : {}
+  for_each = try(var.subscription.management_lock, null) != null ? { default = var.subscription } : {}
 
   name       = each.value.management_lock.name
   lock_level = each.value.management_lock.level
