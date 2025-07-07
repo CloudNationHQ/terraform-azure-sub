@@ -1,11 +1,27 @@
 # Changelog
 
-## [2.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.1.0...v2.2.0) (2025-06-12)
+## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.1...v3.0.0) (2025-07-04)
 
+
+### ⚠ BREAKING CHANGES
+
+* The data structure changed, causing a recreate on existing resources.
 
 ### Features
 
-* add existing subscription support ([#18](https://github.com/CloudNationHQ/terraform-azure-sub/issues/18)) ([1c93026](https://github.com/CloudNationHQ/terraform-azure-sub/commit/1c930268317d1b445da3760c0fbd0badc827ff1c))
+* add support for existing subscriptions ([#28](https://github.com/CloudNationHQ/terraform-azure-sub/issues/28)) ([8cd4750](https://github.com/CloudNationHQ/terraform-azure-sub/commit/8cd475044e6ae45c522b01a0e98a3af7f51f1c3f))
+
+### Upgrade from v2.3.1 to v3.0.0:
+
+- Update module reference to: `version = "~> 3.0"`
+  - The keys on some resources changed, which will cause recreates.
+
+## [2.3.1](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.0...v2.3.1) (2025-06-17)
+
+
+### Reverts
+
+* return to v2.1.0 state ([#26](https://github.com/CloudNationHQ/terraform-azure-sub/issues/26)) ([825db3b](https://github.com/CloudNationHQ/terraform-azure-sub/commit/825db3b7e30c0cb6de806a8bbd27fa81fce3f334))
 
 ## [2.1.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.0.1...v2.1.0) (2025-06-12)
 
