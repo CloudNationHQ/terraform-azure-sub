@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.0.0...v3.1.0) (2025-07-07)
+
+
+### Features
+
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#20](https://github.com/CloudNationHQ/terraform-azure-sub/issues/20)) ([7a2defc](https://github.com/CloudNationHQ/terraform-azure-sub/commit/7a2defcb96e7ed61def943ff3ae42bd445212903))
+
+
+### Bug Fixes
+
+* fix subscription output to include existing ones ([#30](https://github.com/CloudNationHQ/terraform-azure-sub/issues/30)) ([0d8d26a](https://github.com/CloudNationHQ/terraform-azure-sub/commit/0d8d26ab5199d140d69bd452fa1c644df1e6eb56))
+
 ## [3.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v2.3.1...v3.0.0) (2025-07-04)
 
 
