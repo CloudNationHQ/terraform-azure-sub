@@ -149,7 +149,7 @@ Description: management group subscription associations
 
 ### <a name="output_subscriptions"></a> [subscriptions](#output\_subscriptions)
 
-Description: subscription(s) details
+Description: Contains all subscription configuration
 <!-- END_TF_DOCS -->
 
 ## Goals
