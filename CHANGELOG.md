@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.1.0...v3.2.0) (2025-11-26)
+
+
+### Features
+
+* **deps:** bump github.com/ulikunitz/xz from 0.5.10 to 0.5.14 in /tests ([#35](https://github.com/CloudNationHQ/terraform-azure-sub/issues/35)) ([f212a5a](https://github.com/CloudNationHQ/terraform-azure-sub/commit/f212a5a5eac3546b9f8fd57bf47904c8a4332532))
+* increment all module versions to the latest ([#42](https://github.com/CloudNationHQ/terraform-azure-sub/issues/42)) ([8c3025f](https://github.com/CloudNationHQ/terraform-azure-sub/commit/8c3025f46570aa458c99ec234a7550b41b1cc03d))
+
 ## [3.1.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.0.0...v3.1.0) (2025-07-07)
 
 
