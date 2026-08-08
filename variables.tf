@@ -5,7 +5,7 @@ variable "subscription" {
     alias                         = optional(string, null)
     billing_scope_id              = optional(string)
     subscription_id               = optional(string, null)
-    workload                      = optional(string, "Production")
+    workload                      = optional(string)
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
