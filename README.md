@@ -25,7 +25,7 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
-- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 4.0)
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (4.29.0)
 
 ## Resources
 
@@ -56,7 +56,7 @@ object({
     alias                         = optional(string, null)
     billing_scope_id              = optional(string)
     subscription_id               = optional(string, null)
-    workload                      = optional(string, "Production")
+    workload                      = optional(string)
     tags                          = optional(map(string))
     management_group_name         = optional(string)
     management_group_display_name = optional(string)
