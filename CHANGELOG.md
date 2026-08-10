@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.3.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.2.0...v3.3.0) (2026-08-10)
+
+
+### Features
+
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#46](https://github.com/CloudNationHQ/terraform-azure-sub/issues/46)) ([06c266c](https://github.com/CloudNationHQ/terraform-azure-sub/commit/06c266c52decf228468e7f9b3f3a3245b6038792))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#47](https://github.com/CloudNationHQ/terraform-azure-sub/issues/47)) ([5f392e9](https://github.com/CloudNationHQ/terraform-azure-sub/commit/5f392e96eb3f5c9e532095b82f9303480fef37e7))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#48](https://github.com/CloudNationHQ/terraform-azure-sub/issues/48)) ([ae54ea9](https://github.com/CloudNationHQ/terraform-azure-sub/commit/ae54ea9f126dcde12254dc7fa37eff5919a91306))
+* **deps:** bump github.com/cloudnationhq/az-cn-go-validor in /tests ([#49](https://github.com/CloudNationHQ/terraform-azure-sub/issues/49)) ([d882d88](https://github.com/CloudNationHQ/terraform-azure-sub/commit/d882d88706b4c0c8bedb7a856ea334fdba83f60a))
+* **deps:** bump golang.org/x/crypto from 0.45.0 to 0.52.0 in /tests ([#50](https://github.com/CloudNationHQ/terraform-azure-sub/issues/50)) ([565afd8](https://github.com/CloudNationHQ/terraform-azure-sub/commit/565afd8e982f3d392b10ecb94c2235570f9934a6))
+
+
+### Bug Fixes
+
+* let workload be fully optional (null) to be able to import subs ([#52](https://github.com/CloudNationHQ/terraform-azure-sub/issues/52)) ([c93af0f](https://github.com/CloudNationHQ/terraform-azure-sub/commit/c93af0f1836ba879d7549bbb7434132750ad452d))
+
 ## [3.2.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.1.0...v3.2.0) (2025-11-26)
 
 
