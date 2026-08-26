@@ -19,26 +19,26 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (~> 1.0)
 
-- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 4.0)
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (~> 5.0)
 
 ## Providers
 
 The following providers are used by this module:
 
-- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (4.29.0)
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) (~> 5.0)
 
 ## Resources
 
 The following resources are used by this module:
 
-- [azurerm_management_group_subscription_association.sub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) (resource)
-- [azurerm_management_lock.lock](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_lock) (resource)
-- [azurerm_subscription.sub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) (resource)
-- [azurerm_billing_enrollment_account_scope.enrollment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_enrollment_account_scope) (data source)
-- [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) (data source)
-- [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) (data source)
-- [azurerm_management_group.group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) (data source)
-- [azurerm_subscription.existing](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) (data source)
+- [azurerm_management_group_subscription_association.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_subscription_association) (resource)
+- [azurerm_management_lock.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_lock) (resource)
+- [azurerm_subscription.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription) (resource)
+- [azurerm_billing_enrollment_account_scope.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_enrollment_account_scope) (data source)
+- [azurerm_billing_mca_account_scope.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) (data source)
+- [azurerm_billing_mpa_account_scope.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) (data source)
+- [azurerm_management_group.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/management_group) (data source)
+- [azurerm_subscription.this](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) (data source)
 
 ## Required Inputs
 
@@ -53,9 +53,9 @@ Type:
 ```hcl
 object({
     name                          = optional(string)
-    alias                         = optional(string, null)
+    alias                         = optional(string)
     billing_scope_id              = optional(string)
-    subscription_id               = optional(string, null)
+    subscription_id               = optional(string)
     workload                      = optional(string)
     tags                          = optional(map(string))
     management_group_name         = optional(string)
@@ -63,8 +63,8 @@ object({
     use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
-      level = optional(string, "CanNotDelete")
-      notes = optional(string, null)
+      level = optional(string)
+      notes = optional(string)
     }))
   })
 ```
@@ -147,7 +147,7 @@ Description: management group details
 
 Description: management group subscription associations
 
-### <a name="output_subscriptions"></a> [subscriptions](#output\_subscriptions)
+### <a name="output_subscription"></a> [subscription](#output\_subscription)
 
 Description: Contains all subscription configuration
 <!-- END_TF_DOCS -->

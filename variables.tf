@@ -2,9 +2,9 @@ variable "subscription" {
   description = "Contains all subscription configuration"
   type = object({
     name                          = optional(string)
-    alias                         = optional(string, null)
+    alias                         = optional(string)
     billing_scope_id              = optional(string)
-    subscription_id               = optional(string, null)
+    subscription_id               = optional(string)
     workload                      = optional(string)
     tags                          = optional(map(string))
     management_group_name         = optional(string)
@@ -12,8 +12,8 @@ variable "subscription" {
     use_existing_subscription     = optional(bool, false)
     management_lock = optional(object({
       name  = optional(string)
-      level = optional(string, "CanNotDelete")
-      notes = optional(string, null)
+      level = optional(string)
+      notes = optional(string)
     }))
   })
 }
