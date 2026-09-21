@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.3.0...v4.0.0) (2026-09-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade azurerm v5 ([#53](https://github.com/CloudNationHQ/terraform-azure-sub/issues/53))
+
+### Features
+
+* upgrade azurerm v5 ([#53](https://github.com/CloudNationHQ/terraform-azure-sub/issues/53)) ([190a34e](https://github.com/CloudNationHQ/terraform-azure-sub/commit/190a34e41ce5cf00cba10dae1506bb8718fca319))
+
 ## [3.3.0](https://github.com/CloudNationHQ/terraform-azure-sub/compare/v3.2.0...v3.3.0) (2026-08-10)
 
 
