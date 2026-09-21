@@ -1,6 +1,6 @@
 module "sub" {
   source  = "cloudnationhq/sub/azure"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   for_each = {
     for key, subscription in local.subscriptions : key => subscription

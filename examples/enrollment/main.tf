@@ -1,6 +1,6 @@
 module "sub" {
   source  = "cloudnationhq/sub/azure"
-  version = "~> 3.0"
+  version = "~> 4.0"
 
   subscription = {
     name = "TF-demo-subscription"
